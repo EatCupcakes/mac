@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Eat' Cupcakes - Home</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" href="https://img.icons8.com/ios/50/000000/cupcake.png">
+	<style>
+	@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		outline: none;
+		list-style: none;
+		text-decoration: none;
+		font-family: Roboto;
+	}
+
+	h1.title{
+		margin-bottom: 20px;
+		color: #444444;
+		font-family: 'Allura', cursive;
+		text-transform: uppercase;
+		font-size: 38px;
+		word-spacing: 25px;
+		letter-spacing: 5px;
+	}
+
+	p{
+		margin-bottom: 15px;
+		font-size: 14px;
+		line-height: 20px;
+		color: #a9a9a9;
+	}
+	.btn-full{
+		background-color: transparent;
+		color: #bf55ec;
+		margin-right: 15px;
+		border: 1px solid #bf55ec;
+	  }
+
+	  .btn-full:hover{
+		background-color: #ffc0cb;
+		transition: 1s ease-in-out;
+	  }
+
+	  .btn-full1{
+		background-color: transparent;
+		color: #FFA500;
+		border: 1px solid #FFA500;
+	  }
+
+	  .btn-full1:hover{
+		background-color: #000000;
+		transition: 1s ease-in-out;
+	  }
+
+	.btn a {
+	    width: 180px;
+	    height: 35px;
+	    line-height: 35px;
+	    border: 2px solid #fb2274;
+	    color: #fb2274;
+	    display: block;
+	    margin: 25px auto 0;
+	    text-align: center;
+	}
+
+	.btn a:hover{
+		background-color: #000000;
+		transition: 1s ease-in-out;
+	}
+
+	.main_container{
+		position: relative;
+	}
+
+	/* Navigation Bar */
+	.navbar{
+		width: 100%;
+		height: 65px;
+		position: absolute;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+	}
+
+	.logo a{
+		font-family: 'Allura', cursive;
+		font-size: 32px;
+		color: #fb2274;
+	}
+
+	.navbar_items ul{
+		display: flex;
+	}
+
+	.navbar_items ul li{
+		margin: 0 10px;
+	}
+
+	.navbar_items ul li a{
+		text-transform: uppercase;
+		color: #fff;
+	}
+
+	/* banner_image */
+	.banner_image{
+		background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(https://images.pexels.com/photos/1853003/pexels-photo-1853003.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) no-repeat top center;
+		background-size: cover;
+		width: 100%;
+		height: 600px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.banner_content{
+		text-align: center;
+		color: #fff;
+	}
+
+	.banner_content h1{
+		text-transform: uppercase;
+		line-height: 38px;
+		margin-bottom: 15px;
+	}
+
+	.banner_content h1 span{
+		color: #fb2274;
+	}
+
+
+	/* About */
+	.about,
+	.services,
+	.services1,
+	.ourteam{
+		text-align: center;
+		padding: 5% 10%;
+	}
+	/* Services */
+	.services{
+		background: #f5f5f5;
+	}
+
+	.diff_services {
+	    margin-top: 35px;
+	    display: flex;
+	    justify-content: space-between;
+	}
+
+	.diff_services .diff_services_item {
+	    width: 30%;
+	}
+
+	.diff_services .diff_services_item img {
+	    width: 100%;
+	    margin-bottom: 25px;
+	}
+
+	.diff_services .diff_services_item h3 {
+	    color: #fb2274;
+	    margin-bottom: 15px;
+	}
+
+	/* Services1 */
+	.services1{
+		background: #f5f5f5;
+	}
+
+	.diff_services1 {
+	    margin-top: 35px;
+	    display: flex;
+	    justify-content: space-between;
+	}
+
+	.diff_services1 .diff_services1_item {
+	    width: 30%;
+	}
+
+	.diff_services1 .diff_services1_item img {
+	    width: 100%;
+	    margin-bottom: 25px;
+	}
+
+	.diff_services1 .diff_services1_item h3 {
+	    color: #fb2274;
+	    margin-bottom: 15px;
+	}
+
+
+	/* our team */
+	.ourteam{
+		background: #f5f5f5;
+	}
+
+	.ourteam_wrapper{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.ourteam_wrapper .team{
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.ourteam_wrapper .team-1.team{
+		margin-bottom: 25px;
+	}
+
+	.ourteam_wrapper .team_members{
+		width: 30%;
+		height: auto;
+		cursor: pointer;
+		overflow: hidden;
+		position: relative;
+	}
+
+	.ourteam_wrapper .team_members img{
+		display: block;
+		width: 100%;
+		height: auto;
+		transition: all 0.5s ease;
+	}
+
+	.ourteam_wrapper .team_members:hover img{
+		transform: scale(1.1);
+	}
+
+	/* footer */
+	section {
+  width: 100%;
+  display: inline-block;
+  background: #ccc;
+  height: 60vh;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.footer-distributed {
+  background-color: #710627;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  font: normal 16px sans-serif;
+  padding: 0px 50px;
+}
+
+.footer-distributed .footer-left p {
+  color: #F19A3E;
+  font-size: 14px;
+  margin: 0;
+}
+/* Footer links */
+
+.footer-distributed p.footer-links {
+  font-size: 18px;
+  font-weight: bold;
+  color: #FDF0D5;
+  margin: 0 2 10px;
+  padding: 0;
+  transition: ease 1s;
+}
+
+.footer-distributed p.footer-links a {
+  display: inline-block;
+  line-height: 1.8;
+  text-decoration: none;
+  color: inherit;
+  transition: ease 1s;
+}
+
+.footer-distributed .footer-links a:before {
+  content: "·";
+  font-size: 20px;
+  left: 0;
+  color: #fff;
+  display: inline-block;
+  padding-right: 5px;
+}
+
+.footer-distributed .footer-links .link-1:before {
+  content: none;
+}
+
+.footer-distributed .footer-right {
+  float: right;
+  margin-top: 6px;
+  max-width: 180px;
+}
+
+.footer-distributed .footer-right a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background-color: #F0544F;
+  border-radius: 2px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+  margin-left: 3px;
+  transition:all .25s;
+}
+
+.footer-distributed .footer-right a:hover{transform:scale(1.1); -webkit-transform:scale(1.1);}
+
+.footer-distributed p.footer-links a:hover{text-decoration:underline;}
+
+/* Media Queries */
+
+@media (max-width: 600px) {
+  .footer-distributed .footer-left, .footer-distributed .footer-right {
+    text-align: center;
+  }
+  .footer-distributed .footer-right {
+    float: none;
+    margin: 0 auto 20px;
+  }
+  .footer-distributed .footer-left p.footer-links {
+    line-height: 1.8;
+  }
+}
+
+
+	@media (max-width: 720px){
+
+		.navbar{
+			height: auto;
+			flex-direction: column;
+		}
+
+		.logo{
+			margin-bottom: 25px;
+		}
+
+		.navbar_items ul{
+			flex-direction: column;
+			text-align: center;
+		}
+
+		.navbar_items ul li{
+			margin-bottom:5px;
+		}
+
+		.banner_content{
+			margin-top: 35px;
+		}
+
+	}
+
+	</style>
+</head>
+<body>
+
+<div class="main_container" id="home">
+
+	<div class="navbar">
+		<div class="logo">
+			<a href="#">Eat' Cupcakes 🧁</a>
+		</div>
+		<div class="navbar_items">
+			<ul>
+				<li><a href="/">home</a></li>
+				<li><a href="#services">services</a></li>
+				<li><a href="/shop/contact">contact</a></li>
+				<li><a href="#services1">Gallery</a></li>
+				<li><a href="#ourteam">our team</a></li>
+				{% if request.user.is_authenticated %}
+
+        <li><a href="{% url 'logout' %}" role="button">{{request.user}} - Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'login' %}" role="button">Log in</a></li>
+        {% endif %}
+			</ul>
+		</div>
+	</div>
+
+	<div class="banner_image">
+		<div class="banner_content">
+			<h1>WELCOME TO EAT' CUPCAKES<br> <span>HOUSE OF CAKE LOVERS<span></h1>
+			<p>Click to view our blog for latest events or Sign-in to view our shop & make purchases! </p>
+			<a href="/shop" class="btn btn-full">Shop</a>
+        <a href="/blog" class="btn btn-full1">Blog</a>
+		</div>
+	</div>
+
+	<div class="about" id="about">
+		<h1 class="title">About Us</h1>
+		<p>I started Eat' Cupcakes in 2011 as a personal blog and an easy way to share my baking recipes with my friends and family. At the time, I felt a little lost in both my career and life, but the kitchen always kept me centered. My small hobby blog quickly ignited a passion for food photography and teaching others how to bake, not just what to bake. Just a year and a half after launching my blog, I quit my full-time job to build Eat' Cupcakes into a business...</p>
+		<div class="btn"><a href="/shop/about">Learn More</a></div>
+	</div>
+
+	<div class="services" id="services">
+		<h1 class="title">our Services</h1>
+		<p>Our bakery provides services for special occasions (such as weddings, anniversaries, birthday parties, business networking events, etc.) or customized baked products for people who have allergies or sensitivities to certain foods (such as nuts, peanuts, dairy or gluten, etc.). Bakeries can provide a wide range of cake designs such as sheet cakes, layer cakes, wedding cakes, tiered cakes, etc. Other bakeries may specialize in traditional or hand-made types of baked products made with locally milled flour, without flour bleaching agents or flour treatment agents, baking what is sometimes referred to as artisan bread.</p>
+		<div class="diff_services">
+			<div class="diff_services_item">
+				<img src="https://images.pexels.com/photos/903400/pexels-photo-903400.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="service_image">
+				<h3 class="sub_title">Birthday Cupcakes</h3>
+				<p>Special Offers on our Birthday Cupcakes if contact us!</p>
+			</div>
+			<div class="diff_services_item">
+				<img src="https://images.pexels.com/photos/1857157/pexels-photo-1857157.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="service_image">
+				<h3 class="sub_title">Wedding Cupcakes</h3>
+				<p>Contact us in advance to get discount on every Rs1000 purchases!</p>
+			</div>
+			<div class="diff_services_item">
+				<img src="https://images.pexels.com/photos/1036857/pexels-photo-1036857.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="service_image">
+				<h3 class="sub_title">Opening Hours</h3>
+				<p>From Monday- Saturday opening hours: 08:00 - 19:00</p>
+				<p>Sunday Opening hours: 09:00 - 15:00</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="services1" id="services1">
+		<h1 class="title">Gallery</h1>
+		<p>Some Ordered Cake we have prepared and delivered!</p>
+		<div class="diff_services1">
+			<div class="diff_services1_item">
+				<img src="https://images.pexels.com/photos/2474609/pexels-photo-2474609.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="service1_image">
+				<h3 class="sub_title">Ocassional Cupcakes</h3>
+				<p>Special Event</p>
+			</div>
+			<div class="diff_services1_item">
+				<img src="https://images.pexels.com/photos/6298/snow-winter-sweet-cookies-6298.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="service1_image">
+				<h3 class="sub_title">Sponge Cupcakes</h3>
+				<p>Ocassional Cupcakes</p>
+			</div>
+			<div class="diff_services1_item">
+				<img src="https://images.pexels.com/photos/112392/pexels-photo-112392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="service1_image">
+				<h3 class="sub_title">Icing Cupcakes</h3>
+				<p>Something new we have created</p>
+			</div>
+		</div>
+		<div class="diff_services1">
+			<div class="diff_services1_item">
+				<img src="https://images.pexels.com/photos/2466047/pexels-photo-2466047.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="service1_image">
+				<h3 class="sub_title">Lovers</h3>
+			</div>
+			<div class="diff_services1_item">
+				<img src="https://images.pexels.com/photos/688799/pexels-photo-688799.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="service1_image">
+				<h3 class="sub_title">Simple Cupcakes</h3>
+			</div>
+			
+			<div class="diff_services1_item">
+				<img src="https://images.pexels.com/photos/978267/pexels-photo-978267.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="service1_image">
+				<h3 class="sub_title">Chocolate Cupcakes</h3>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="ourteam" id="ourteam">
+		<h1 class="title">our team</h1>
+		<div class="ourteam_wrapper">
+			<div class="team-1 team">
+				<div class="team_members" data-name="Kopi Latte"><img src="https://images.pexels.com/photos/2494658/pexels-photo-2494658.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Team_Images"><br/><br/>
+					<h4 class="sub_title">Kopi Latte</h4><br/>
+					<h5><font color="blue">Chef</font></h5><br/>
+					<p>Nationality: Mauritian</p>
+					<p>Direct Contact: <a href="https://www.facebook.com/">Kopi</a></p>
+				</div>
+				<div class="team_members" data-name="Aiushtha"><img src="https://images.pexels.com/photos/3326544/pexels-photo-3326544.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Team_Images"><br/><br/>
+					<h4 class="sub_title">Aiushtha</h4><br/>
+          			<h5><font color="red">Assistant</font></h5><br/>
+          			<p>Nationality: Italian</p>
+          			<p>Direct Contact: <a href="https://www.facebook.com/">Aiushtha</a></p>
+				</div>
+				<div class="team_members" data-name="Pedro"><img src="https://images.pexels.com/photos/3298635/pexels-photo-3298635.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Team_Images"><br/><br/>
+					<h4 class="sub_title">Pedro</h4><br/>
+          			<h5><font color="red">Assistant</font></h5><br/>
+          			<p>Nationality: French</p>
+          			<p>Direct Contact: <a href="https://www.facebook.com/">Pedro</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer class="footer-distributed">
+
+    <div class="footer-right">
+
+      <a href="https://www.facebook.com/login.php"><i class="fa fa-facebook"></i></a>
+      <a href="https://www.instagram.com"><i class="fa fa-instagram"></i></a>
+      <a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a>
+
+    </div>
+
+    <div class="footer-left">
+
+      <p class="footer-links">
+        <a class="link-1" href="/">Home</a>
+
+        <a href="/shop/privacy">Privacy</a>
+
+        <a href="/shop/faq">FAQ</a>
+
+      </p>
+
+      <p>Eat' Cupcakes &copy; 2020 | &#9743; +230 5905 6329 | &#9993; yadjnishnursiah@gmail.com</p>
+    </div>
+
+  </footer>
+
+</div>
+
+</body>
+</html>

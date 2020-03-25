@@ -1,0 +1,309 @@
+{% extends 'shop/basic.html' %}
+{% block title %} Eat' Cupcakes - shop{% endblock %}
+{% block css %}
+.navbar{
+    background-color:burlywood;
+   }
+.col-md-3
+{
+display: inline-block;
+margin-left:-4px;
+}
+.carousel-indicators .active {
+background-color: pink;
+}
+.col-md-3 img{
+max-width: 200px;
+height: 150px;
+}
+body .carousel-indicator li{
+background-color: pink;
+}
+body .carousel-indicators{
+bottom: -50px;
+}
+
+.carousel-indicators li{
+    background-color: #e89ec5;
+}
+body .carousel-control-prev-icon,
+body .carousel-control-next-icon{
+background-color: pink;
+}
+.carousel-control-prev,
+.carousel-control-next{
+top: auto;
+bottom: auto;
+padding-top: 222px;
+}
+body .no-padding{
+padding-left: 0,
+padding-right: 0;
+}
+
+
+
+
+
+
+       
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+
+* {
+  font-family: Roboto;
+}
+
+section {
+  width: 100%;
+  display: inline-block;
+  background: #ccc;
+  height: 60vh;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.footer-distributed {
+ background-color: #710627;
+ box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+ box-sizing: border-box;
+ width: 100%;
+ text-align: left;
+ font: normal 16px sans-serif;
+ padding: 0px 50px;
+
+}
+
+.footer-distributed .footer-left p {
+ color: #F19A3E;
+ font-size: 14px;
+ margin: 0;
+}
+/* Footer links */
+
+.footer-distributed p.footer-links {
+ font-size: 18px;
+ font-weight: bold;
+ color: #FDF0D5;
+ margin: 0 2 10px;
+ padding: 0;
+ transition: ease 1s;
+}
+
+.footer-distributed p.footer-links a {
+  display: inline-block;
+  line-height: 1.8;
+  text-decoration: none;
+  color: inherit;
+  transition: ease 1s;
+}
+
+.footer-distributed .footer-links a:before {
+  content: "·";
+  font-size: 20px;
+  left: 0;
+  color: #fff;
+  display: inline-block;
+  padding-right: 5px;
+}
+
+.footer-distributed .footer-links .link-1:before {
+  content: none;
+}
+
+.footer-distributed .footer-right {
+  float: right;
+  margin-top: 6px;
+  max-width: 180px;
+}
+
+.footer-distributed .footer-right a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background-color: #F0544F;
+  border-radius: 2px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+  margin-left: 3px;
+  transition:all .25s;
+}
+
+.footer-distributed .footer-right a:hover{transform:scale(1.1); -webkit-transform:scale(1.1);}
+
+.footer-distributed p.footer-links a:hover{text-decoration:underline;}
+
+/* Media Queries */
+
+@media (max-width: 600px) {
+  .footer-distributed .footer-left, .footer-distributed .footer-right {
+    text-align: center;
+  }
+  .footer-distributed .footer-right {
+    float: none;
+    margin: 0 auto 20px;
+  }
+  .footer-distributed .footer-left p.footer-links {
+    line-height: 1.8;
+  }
+}
+
+{% endblock %}
+{% block body %}
+{% load static %}
+<div class="container">
+    <!--Slideshow starts here -->
+    {% for product, range, nSlides in allProds %}
+    <h5 class="my-4"><b>Promo on</b> <font color="orange">{{product.0.category}}</font> - <font color="red">Limited Sale</font></h5>
+    <div class="row">
+        <div id="demo{{forloop.counter}}" class="col carousel slide my-3" data-ride="carousel">
+            <ul class="carousel-indicators">
+                <li data-target="#demo{{forloop.counter}}" data-slide-to="0" class="active"></li>
+                <!--A for loop for the product's point of view-->
+                {% for i in range %}
+                <li data-target="#demo{{forloop.parentloop.counter}}" data-slide-to="{{i}}"></li>
+                {% endfor %}
+            </ul>
+            <div class="container carousel-inner no-padding">
+                <!--For 1 product-->
+                <div class="carousel-item active">
+
+                    <!--For the rest product we shall create-->
+                    {% for i in product %}
+                    <div class="col-xs-3 col-sm-3 col-md-3">
+                        <div class="card align-items-center" style="width: 18rem;">
+                            <img src='/media/{{i.image}}' class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title" id="namepr{{i.id}}">{{i.product_name}}</h5>
+                                <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
+                                <h6 class="card-title" >Price: Rs <span id="pricepr{{i.id}}">{{i.price}}</span>
+                                    </h6>
+                                <span id="divpr{{i.id}}" class="divpr">
+                                    <button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button>
+                                </span>
+                                <a href="/shop/products/{{i.id}}"><button id="qv{{i.id}}" class="btn btn-danger cart">QuickView</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- using if statement for the for loop we have been using for the product arrangement in the slideshow, -->
+                    {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+                </div>
+                <div class="carousel-item">
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- left and right controls for the slide -->
+        <a class="carousel-control-prev" href="#demo{{forloop.counter}}" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo{{forloop.counter}}" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+{% block js %}
+<script>
+//Search for the cart products in the localStorage
+if (localStorage.getItem('cart') == null) {
+    var cart = {}; //The getItem method in the WebStorage specification, 
+//explicitly returns null if the item does not exist:
+// If the given key does not exist in the list associated with the object 
+//then this method must return null.
+} else { //A common use of JSON is to exchange data to/from a web server.
+    //When receiving data from a web server, the data is always a string.
+    cart = JSON.parse(localStorage.getItem('cart'));
+    //Parse the data with JSON.parse(), and the data becomes a JavaScript object. 
+    updateCart(cart);
+}
+// if we click on the add to cart button, it will add the item and if we continue to click on it,
+// it will add of how muc you have clicked
+//A JQuery function used to execute each time the add to cart button is triggered.
+//Now i want to make it in a way when i clicked on the cart, on the console it will display clicked +  
+//the id.  
+//$('.cart').click(function() {
+    $('.divpr').on('click', 'button.cart', function(){
+    var idstr = this.id.toString();
+    if (cart[idstr] != undefined) {
+        qty = cart[idstr][0] + 1;
+    } else {
+        qty = 1;
+        name = document.getElementById('name'+idstr).innerHTML;
+        price = document.getElementById('price'+idstr).innerHTML;
+        cart[idstr] = [qty, name, parseInt(price)];
+    }
+    updateCart(cart);
+});
+//add the popOver to the cart!!!
+//When we click on add to cart, it will change to a plus or minus button, 
+//for adding items or removing items from cart
+//I have used this function to do the "+" or "-" items in the add to cart button. Basically if we click on add to cart, this function will be executed!
+$('#popcart').popover();
+updatePopover(cart);
+// This function is to display my chosen items in "add to cart" to the popOver
+function updatePopover(cart) {
+    console.log('We are inside updatePopover');
+    var popStr = "";
+    popStr = popStr + "<h5> Cart for your items in my shopping cart </h5><div class='mx-2 my-2'>";
+    var i = 1;
+    for (var item in cart) {
+        popStr = popStr + "<b>" + i + "</b>. ";
+        popStr = popStr + document.getElementById('name' + item).innerHTML.slice(0, 19) + "... Qty: " + cart[item][0] + '<br>';
+        i = i + 1;
+    }
+    popStr = popStr + "</div> <a href='/shop/checkout'><button class='btn btn-primary' id ='checkout'>Checkout</button></a> <button class='btn btn-primary' onclick='clearCart()' id ='clearCart'>Clear Cart</button>"
+    console.log(popStr);
+    document.getElementById('popcart').setAttribute('data-content', popStr);
+    $('#popcart').popover('show');
+}
+function clearCart() {
+    cart = JSON.parse(localStorage.getItem('cart'));
+    for (var item in cart) {
+        document.getElementById('div' + item).innerHTML = '<button id="' + item + '" class="btn btn-primary cart">Add To Cart</button>'
+    }
+    localStorage.clear();
+    cart = {};
+    updateCart(cart);
+}
+function updateCart(cart) {
+    var sum = 0;
+    for (var item in cart) {
+        sum = sum + cart[item][0];
+        document.getElementById('div' + item).innerHTML = "<button id='minus" + item + "' class='btn btn-primary minus'>-</button> <span id='val" + item + "''>" + cart[item][0] + "</span> <button id='plus" + item + "' class='btn btn-primary plus'> + </button>";
+    }
+    localStorage.setItem('cart', JSON.stringify(cart)); // this line of code prevent the items that i have clicked on the carts to disappeared whenever i refreshed the page!
+    document.getElementById('cart').innerHTML = sum; //This is to update the items' clicked on the cart on the nav bar
+    console.log(cart);
+    updatePopover(cart);
+}
+//If minus button is clicked, change the cart as well as the display value
+$('.divpr').on("click", "button.minus", function() {
+    a = this.id.slice(7, );
+    cart['pr' + a][0] = cart['pr' + a][0] - 1;
+    cart['pr' + a][0] = Math.max(0, cart['pr' + a][0]);
+    document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
+    // when i want to remove the zero quantity from card and the product together
+    if (cart['pr' +a][0] == 0){
+        document.getElementById('divpr' + a).innerHTML = '<button id = "pr'+a+'" class="btn btn-primary cart">Add to cart</button>'
+        delete cart ['pr'+a];
+    }
+    else{
+        document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
+    }
+    updateCart(cart);
+});
+//If plus is clicked, change the cart as well as the display value
+$('.divpr').on("click", "button.plus", function() {
+    a = this.id.slice(6, );
+    cart['pr' + a][0] = cart['pr' + a][0] + 1; //it will increase by one
+    document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
+    updateCart(cart);
+});
+</script>
+{% endblock %}
